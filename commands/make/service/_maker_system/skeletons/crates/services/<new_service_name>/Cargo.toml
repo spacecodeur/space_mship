@@ -1,0 +1,9 @@
+[package]
+name = "<new_service_name>"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+httpserver = { path = "../../common/httpserver" }
+services_manager = { path = "../../common/services_manager" }
+serde = { workspace = true }

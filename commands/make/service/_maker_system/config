@@ -1,0 +1,7 @@
+SERVICES_DIR=crates/services
+DOCKER_DIR=docker
+COMMANDS_SERVICES_DIR=commands/services
+SERVICES_MANAGER_PATH=crates/common/services_manager/src/lib.rs
+CARGO_WORKSPACE_PATH=./Cargo.toml
+ENV_FILE_PATH=.env
+SKELETONS_DIR=commands/make/service/_maker_system/skeletons

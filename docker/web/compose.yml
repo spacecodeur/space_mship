@@ -1,0 +1,28 @@
+services:
+  service-web:
+    env_file: 
+      - ../../.env
+    platform: linux/amd64
+    image: ${APP_NAME}-web-image
+    container_name: ${APP_NAME}-web-container
+    hostname: ${APP_NAME}-web-container
+    build:
+      context: ../../
+      dockerfile: ./docker/web/Dockerfile
+      args:
+        RUST_VERSION: 1.86
+        BASE_OS: slim
+    volumes:
+      - ../..:/app:rw
+      - ../../crates:/app/crates:ro
+      - ../../crates/common:/app/crates/common:rw
+      - ../../crates/web:/app/crates/web:rw
+    tty: true
+    command: ["docker/web/post_build.sh"]
+    networks:
+      - default
+
+networks:
+  default:
+    external: true
+    name: ${APP_NAME}-docker-network

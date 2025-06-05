@@ -1,0 +1,28 @@
+services:
+  service-<new_service_name>:
+    env_file: 
+      - ../../.env
+    platform: linux/amd64
+    image: ${APP_NAME}-<new_service_name>-image
+    container_name: ${APP_NAME}-<new_service_name>-container
+    hostname: ${APP_NAME}-<new_service_name>-container
+    build:
+      context: ../../
+      dockerfile: ./docker/<new_service_name>/Dockerfile
+      args:
+        RUST_VERSION: 1.86
+        BASE_OS: slim
+    volumes:
+      - ../..:/app:rw
+      - ../../crates:/app/crates:ro
+      - ../../crates/common:/app/crates/common:rw
+      - ../../crates/<new_service_name>:/app/crates/<new_service_name>:rw
+    tty: true
+    command: ["docker/<new_service_name>/post_build.sh"]
+    networks:
+      - default
+
+networks:
+  default:
+    external: true
+    name: ${APP_NAME}-docker-network
