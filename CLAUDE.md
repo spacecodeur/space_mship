@@ -6,12 +6,17 @@ This project uses [**space_mship**](https://github.com/spacecodeur/space_mship),
 
 ## How space_mship Works in This Project
 
-### Command Interface (`./cli.sh`)
-The main entry point for all development operations. This script:
+### Command Interface (`./space_mship` or `./cli.sh`)
+The main entry point for all development operations. This can be either:
+- **space_mship binary**: A standalone Rust binary with embedded service creation logic
+- **cli.sh script**: The traditional bash script (for compatibility)
+
+Both provide the same functionality:
 - Manages microservice lifecycle (build, start, stop, logs)
 - Handles container orchestration with Docker
 - Provides development tools for git, docker, and debugging
 - Automatically detects whether commands should run on host or inside containers
+- Creates new microservices (built into the binary)
 
 ### Available Command Categories
 

@@ -104,6 +104,34 @@ your-project/
 
 ## How to integrate space_mship into your project
 
+### Option 1: Using the Binary (Recommended)
+
+1. Download or build the space_mship binary:
+```bash
+# Clone and build from source
+git clone https://github.com/spacecodeur/space_mship.git
+cd space_mship
+./build-binary.sh
+```
+
+2. Copy the binary to your project:
+```bash
+cp space_mship /path/to/your/project/
+```
+
+3. Use the binary instead of cli.sh:
+```bash
+# Create a new service
+./space_mship commands/make/service/new.sh
+
+# Run other commands
+./space_mship commands/services/web/container-management/build.sh
+```
+
+The binary embeds all service creation logic, so you don't need the `_maker_system` directory.
+
+### Option 2: Git Integration
+
 To integrate space_mship without overwriting existing files:
 
 1. Add as a remote:
