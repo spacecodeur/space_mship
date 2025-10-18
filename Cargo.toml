@@ -1,6 +1,7 @@
 [workspace]
 resolver = "3" 
 members = [
+    "crates/cli",
     "crates/common/httpserver", 
     "crates/common/services_manager",
     "crates/services/web",
